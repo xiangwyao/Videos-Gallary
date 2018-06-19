@@ -6,7 +6,7 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "game"
+      searchTerm: ""
     };
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
