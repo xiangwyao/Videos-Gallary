@@ -1,22 +1,31 @@
 // @flow
 
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 // import Perf from 'react-addons-perf';
-import App from './App';
+import App from "./App";
 
 // window.Perf = Perf;
 // Perf.start();
 
 const renderApp = () => {
-    render(<App />, document.getElementById('app'));
+  render(
+    <Router basename={process.env.PUBLIC_URL}>
+      <div>
+        <Route exact path={`/`} render={() => <App />} />
+      </div>
+    </Router>,
+    document.getElementById("app")
+  );
 };
 renderApp();
 
 if (module.hot) {
-    module.hot.accept('./App', () => {
-        renderApp();
-    });
+  module.hot.accept("./App", () => {
+    renderApp();
+  });
 }
 
 // const MyTitle = function MyTitle(props) {
